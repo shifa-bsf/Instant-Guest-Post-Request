@@ -19,7 +19,8 @@ import {
   Switch,
   Badge,
   Text,
-  Title
+  Title,
+  Tabs
 } from '@bsf/force-ui';
 
 /**
@@ -29,6 +30,7 @@ const ForceUIExample = () => {
   const [toggleValue, setToggleValue] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
   const [selectValue, setSelectValue] = React.useState('');
+  const [activeTab, setActiveTab] = React.useState(0);
 
   const selectOptions = [
     { value: 'option1', label: 'Option 1' },
@@ -36,39 +38,83 @@ const ForceUIExample = () => {
     { value: 'option3', label: 'Option 3' },
   ];
 
+  const tabItems = [
+    {
+      title: __('Tab 1', 'instant-guest-post-request'),
+      content: (
+        <div className="igpr-p-4">
+          <Text className="igpr-font-medium igpr-mb-2">
+            {__('Tab 1 Content', 'instant-guest-post-request')}
+          </Text>
+          <Text>
+            {__('This is the content for Tab 1.', 'instant-guest-post-request')}
+          </Text>
+        </div>
+      )
+    },
+    {
+      title: __('Tab 2', 'instant-guest-post-request'),
+      content: (
+        <div className="igpr-p-4">
+          <Text className="igpr-font-medium igpr-mb-2">
+            {__('Tab 2 Content', 'instant-guest-post-request')}
+          </Text>
+          <Text>
+            {__('This is the content for Tab 2.', 'instant-guest-post-request')}
+          </Text>
+        </div>
+      )
+    },
+    {
+      title: __('Tab 3', 'instant-guest-post-request'),
+      content: (
+        <div className="igpr-p-4">
+          <Text className="igpr-font-medium igpr-mb-2">
+            {__('Tab 3 Content', 'instant-guest-post-request')}
+          </Text>
+          <Text>
+            {__('This is the content for Tab 3.', 'instant-guest-post-request')}
+          </Text>
+        </div>
+      )
+    }
+  ];
+
   return (
     <div className="igpr-mt-8">
-      <h2 className="igpr-text-xl igpr-font-bold igpr-mb-4">
+      <Title level={2} className="igpr-mb-4">
         {__('Force UI Components Example', 'instant-guest-post-request')}
-      </h2>
+      </Title>
 
       <Container className="igpr-bg-white igpr-rounded-lg igpr-shadow igpr-p-6 igpr-mb-6">
-        <h3 className="igpr-text-lg igpr-font-medium igpr-mb-4">
+        <Title level={3} className="igpr-mb-4">
           {__('Force UI Components', 'instant-guest-post-request')}
-        </h3>
+        </Title>
         
         <div className="igpr-mb-6">
-          <p className="igpr-mb-4">
+          <Text className="igpr-mb-4">
             {__('This is an example of Force UI components integration.', 'instant-guest-post-request')}
-          </p>
+          </Text>
 
           <div className="igpr-mb-4">
-            <label className="igpr-block igpr-mb-2 igpr-font-medium">
+            <Text className="igpr-block igpr-mb-2 igpr-font-medium">
               {__('Toggle Example', 'instant-guest-post-request')}
-            </label>
-            <Switch
-              checked={toggleValue}
-              onChange={() => setToggleValue(!toggleValue)}
-            />
-            <span className="igpr-ml-2">
-              {toggleValue ? __('On', 'instant-guest-post-request') : __('Off', 'instant-guest-post-request')}
-            </span>
+            </Text>
+            <div className="igpr-flex igpr-items-center">
+              <Switch
+                checked={toggleValue}
+                onChange={() => setToggleValue(!toggleValue)}
+              />
+              <Text className="igpr-ml-2">
+                {toggleValue ? __('On', 'instant-guest-post-request') : __('Off', 'instant-guest-post-request')}
+              </Text>
+            </div>
           </div>
 
           <div className="igpr-mb-4">
-            <label className="igpr-block igpr-mb-2 igpr-font-medium">
+            <Text className="igpr-block igpr-mb-2 igpr-font-medium">
               {__('Input Example', 'instant-guest-post-request')}
-            </label>
+            </Text>
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
@@ -77,9 +123,9 @@ const ForceUIExample = () => {
           </div>
 
           <div className="igpr-mb-4">
-            <label className="igpr-block igpr-mb-2 igpr-font-medium">
+            <Text className="igpr-block igpr-mb-2 igpr-font-medium">
               {__('Select Example', 'instant-guest-post-request')}
-            </label>
+            </Text>
             <Select
               value={selectValue}
               onChange={(e) => setSelectValue(e.target.value)}
@@ -100,9 +146,9 @@ const ForceUIExample = () => {
       </Container>
 
       <Container className="igpr-bg-white igpr-rounded-lg igpr-shadow igpr-p-6 igpr-mb-6">
-        <h3 className="igpr-text-lg igpr-font-medium igpr-mb-4">
+        <Title level={3} className="igpr-mb-4">
           {__('Badges Example', 'instant-guest-post-request')}
-        </h3>
+        </Title>
         
         <div className="igpr-flex igpr-gap-2 igpr-flex-wrap">
           <Badge variant="primary">Primary</Badge>
@@ -112,6 +158,18 @@ const ForceUIExample = () => {
           <Badge variant="warning">Warning</Badge>
           <Badge variant="info">Info</Badge>
         </div>
+      </Container>
+
+      <Container className="igpr-bg-white igpr-rounded-lg igpr-shadow igpr-p-6">
+        <Title level={3} className="igpr-mb-4">
+          {__('Tabs Example', 'instant-guest-post-request')}
+        </Title>
+        
+        <Tabs
+          items={tabItems}
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+        />
       </Container>
     </div>
   );
