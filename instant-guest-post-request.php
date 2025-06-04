@@ -74,6 +74,8 @@ class Instant_Guest_Post_Request {
             'submission_limit' => 3,
             'auto_reply' => 'off',
             'default_theme' => 'light',
+            'admin_email_subject' => 'New Guest Post Submission: "{post_title}"',
+            'admin_email_template' => "A new guest post was submitted:\n\nTitle: {post_title}\nSubmitted by: {author_name} ({author_email})\n\nPreview: {preview_url}\nApprove: {approve_url}\nReject: {reject_url}\n\nLogin to review: {admin_url}",
             'auto_reply_subject' => 'Thank you for your submission',
             'auto_reply_template' => "Hello {author_name},\n\nThank you for submitting your guest post \"{post_title}\" to our website.\n\nWe have received your submission and will review it shortly. We'll notify you once we've made a decision.\n\nRegards,\n{site_name}",
             'approve_email_subject' => 'Your guest post has been approved',
