@@ -15,6 +15,7 @@ import FormStyleTab from './tabs/FormStyleTab';
 import Notification from './common/Notification';
 import Button from './common/Button';
 import Card from './common/Card';
+import ForceUIExample from './ForceUIExample';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('general');
@@ -174,6 +175,9 @@ const App = () => {
           [guest_post_form]
         </code>
       </div>
+      
+      {/* Force UI Example Component */}
+      <ForceUIExample />
     </div>
   );
 };
