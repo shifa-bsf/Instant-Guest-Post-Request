@@ -1,0 +1,137 @@
+/**
+ * Admin Settings Styles
+ */
+
+/* Tabs Navigation */
+.igpr-tabs-nav {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.igpr-tabs-nav li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.igpr-tabs-nav li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin-right: 5px;
+    border-radius: 3px 3px 0 0;
+}
+
+.igpr-tabs-nav li a.active {
+    background: #fff;
+    color: #000;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+}
+
+/* Tab Content */
+.igpr-tab-content {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.igpr-tab-content.active {
+    display: block;
+}
+
+/* Settings Fields */
+.igpr-settings-field {
+    margin-bottom: 20px;
+}
+
+.igpr-settings-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.igpr-settings-field .description {
+    margin-top: 5px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Tooltip styles */
+.igpr-tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    cursor: help;
+}
+
+.igpr-tooltip .dashicons {
+    color: #0073aa;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.igpr-tooltip .igpr-tooltip-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.igpr-tooltip .igpr-tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.igpr-tooltip:hover .igpr-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Shortcode Info */
+.igpr-shortcode-info {
+    margin-top: 30px;
+    padding: 15px;
+    background: #f7f7f7;
+    border-left: 4px solid #0073aa;
+}
+
+.igpr-shortcode-info h2 {
+    margin-top: 0;
+}
+
+.igpr-shortcode-info code {
+    background: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+}

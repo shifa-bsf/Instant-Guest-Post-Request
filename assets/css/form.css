@@ -1,0 +1,204 @@
+/**
+ * Guest Post Form Styles
+ */
+
+/* Light Theme (Default) */
+.igpr-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Dark Theme */
+.igpr-form-container.dark-theme {
+    background: #2d2d2d;
+    color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme Toggle Button */
+.igpr-theme-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.igpr-theme-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.igpr-theme-toggle .theme-icon {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+.igpr-form-field {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.igpr-form-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.igpr-form-field input[type="text"],
+.igpr-form-field input[type="email"],
+.igpr-form-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Dark theme form fields */
+.dark-theme .igpr-form-field input[type="text"],
+.dark-theme .igpr-form-field input[type="email"],
+.dark-theme .igpr-form-field textarea {
+    background-color: #3d3d3d;
+    border-color: #555;
+    color: #f0f0f0;
+}
+
+.dark-theme .wp-editor-wrap .wp-editor-container {
+    border-color: #555;
+}
+
+.dark-theme .wp-editor-wrap .wp-editor-area {
+    background-color: #3d3d3d;
+    color: #f0f0f0;
+}
+
+/* Tooltip styles */
+.igpr-tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    cursor: help;
+}
+
+.igpr-tooltip .dashicons {
+    color: #0073aa;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.dark-theme .igpr-tooltip .dashicons {
+    color: #4cc3ff;
+}
+
+.igpr-tooltip .igpr-tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.igpr-tooltip .igpr-tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.igpr-tooltip:hover .igpr-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.igpr-form-field .required {
+    color: #e32;
+}
+
+.igpr-featured-image-preview {
+    margin-bottom: 10px;
+    min-height: 100px;
+    border: 1px dashed #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.igpr-featured-image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.igpr-form-submit {
+    margin-top: 20px;
+}
+
+.igpr-form-submit input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.igpr-form-submit input[type="submit"]:hover {
+    background-color: #005177;
+}
+
+.igpr-form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.igpr-success {
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+}
+
+.igpr-error {
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    color: #a94442;
+}
+
+#igpr_featured_image_button,
+#igpr_featured_image_remove {
+    margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .igpr-form-container {
+        padding: 15px;
+    }
+}
