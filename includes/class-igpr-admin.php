@@ -18,9 +18,12 @@ class IGPR_Admin {
     public function __construct() {
         // Add admin menu
         add_action('admin_menu', array($this, 'add_admin_menu'));
-        
+
         // Enqueue admin scripts
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
+
+        // Register dashboard widget
+        add_action('wp_dashboard_setup', array($this, 'register_dashboard_widget'));
     }
     
     /**
@@ -78,5 +81,49 @@ class IGPR_Admin {
             <div id="igpr-react-admin-app"></div>
         </div>
         <?php
+    }
+
+    /**
+     * Register dashboard widget
+     */
+    public function register_dashboard_widget() {
+        wp_add_dashboard_widget(
+            'igpr_recent_guest_posts',
+            __('Recent Guest Posts', 'instant-guest-post-request'),
+            array($this, 'render_dashboard_widget')
+        );
+    }
+
+    /**
+     * Render dashboard widget content
+     */
+    public function render_dashboard_widget() {
+        $recent_posts = get_posts(array(
+            'post_type'      => 'post',
+            'posts_per_page' => 5,
+            'meta_key'       => '_igpr_is_guest_post',
+            'meta_value'     => 'yes',
+            'post_status'    => array('publish', 'pending'),
+        ));
+
+        if (empty($recent_posts)) {
+            echo '<p>' . esc_html__( 'No recent guest posts found.', 'instant-guest-post-request' ) . '</p>';
+            return;
+        }
+
+        echo '<ul class="igpr-dashboard-posts">';
+        foreach ($recent_posts as $post) {
+            $author = get_post_meta($post->ID, '_igpr_author_name', true);
+            $status = $post->post_status === 'pending' ? __('Pending', 'instant-guest-post-request') : __('Published', 'instant-guest-post-request');
+            $edit_link = get_edit_post_link($post->ID);
+            echo '<li>';
+            echo '<a href="' . esc_url($edit_link) . '">' . esc_html($post->post_title) . '</a>'; 
+            if ($author) {
+                echo ' - ' . esc_html($author);
+            }
+            echo ' <span class="igpr-status igpr-' . esc_attr($post->post_status) . '">' . esc_html($status) . '</span>';
+            echo '</li>';
+        }
+        echo '</ul>';
     }
 }
