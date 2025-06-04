@@ -25,6 +25,8 @@ require_once IGPR_PLUGIN_DIR . 'includes/class-igpr-form-handler.php';
 require_once IGPR_PLUGIN_DIR . 'includes/class-igpr-post-handler.php';
 require_once IGPR_PLUGIN_DIR . 'includes/class-igpr-notification.php';
 require_once IGPR_PLUGIN_DIR . 'includes/class-igpr-settings.php';
+require_once IGPR_PLUGIN_DIR . 'includes/class-igpr-admin.php';
+require_once IGPR_PLUGIN_DIR . 'includes/class-igpr-rest-api.php';
 
 /**
  * Main plugin class
@@ -59,8 +61,13 @@ class Instant_Guest_Post_Request {
         // Initialize notification system
         new IGPR_Notification();
         
-        // Initialize settings page
-        new IGPR_Settings();
+        // Initialize admin interface
+        if (is_admin()) {
+            new IGPR_Admin();
+        }
+        
+        // Initialize REST API
+        new IGPR_REST_API();
     }
     
     /**
